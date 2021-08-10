@@ -1,2 +1,21 @@
-<h1>Users#_form</h1>
-<p>Find me in app/views/users/_form.html.erb</p>
+<% if @user.errors.any? %>
+  <div>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<p class='notice'>notice</p>
+<%= form_with(model: @user, local: true) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label :password %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.submit '送信' %>
+<% end %>

@@ -10,8 +10,11 @@
   </head>
 
   <body>
-    <div class="header"></div>
+    <header>
+      <%= link_to "新規投稿", new_blog_path, class: "new_create btn btn-primary" %>
+    </header>
+  
     <%= yield %>
-    <div class="footer"></div>
+    <footer></footer>
   </body>
 </html>

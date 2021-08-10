@@ -1,13 +1,11 @@
-<h1>Blogs#index</h1>
-<%= link_to "新規投稿", new_blog_path, class: "btn btn-primary" %>
 <div class="container">
   <div class="row">
     <% @blogs.each do |blog| %>
       <%= link_to  blog_path(blog),class:"btn btn-info",'data-turbolinks': false do %>
-          <ul class="col-12 row">
-              <li class="col-6"><%= "ブログ:#{blog.title}" %></li>
-              <li class="col-6"><%= "内容:#{blog.content}" %></li>
-          </ul>
+        <ul class="col-12 row">
+          <li class="col-6"><%= "ブログ:#{blog.title}" %></li>
+          <li class="col-6"><%= "内容:#{blog.content}" %></li>
+        </ul>
       <% end %>
     <% end %>
   </div>
