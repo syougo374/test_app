@@ -15,8 +15,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to blogs_path, notice: 'もう一度やり直し'
+      redirect_to blogs_path, notice: '良くやった'
     else
+      flash.now[:alert] = "失敗"
       render 'new'
     end
   end
