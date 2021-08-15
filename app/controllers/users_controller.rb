@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-  def index
-  end
-
+  skip_before_action :login_required, only:[ :new, :create ]
   def show
   end
 
@@ -15,6 +13,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
+      # binding.irb
       redirect_to blogs_path, notice: '良くやった'
     else
       flash.now[:alert] = "失敗"
