@@ -1,6 +1,5 @@
 <div class="container">
   <div class="row">
-    <%= flash[:notice] %>
     <% @blogs.each do |blog| %>
       <%= link_to  blog_path(blog),class:"btn btn-info",'data-turbolinks': false do %>
         <ul class="col-12 row">
